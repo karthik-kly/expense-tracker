@@ -29,7 +29,7 @@
   </head>
 
   <body>
-   <h1>Online Expense Tracker</h1>
+    <h1>Online Expense Tracker</h1>
 
     <input type="text" id="title" placeholder="Expense Title" />
     <input type="number" id="amount" placeholder="Amount" />
@@ -41,6 +41,7 @@
         <tr>
           <th>Title</th>
           <th>Amount</th>
+          <th>Action</th>
         </tr>
       </thead>
 
@@ -48,19 +49,25 @@
     </table>
 
     <script>
-      function addExpense() {
-        let title = document.getElementById("title").value;
-        let amount = document.getElementById("amount").value;
+            function addExpense() {
+              let title = document.getElementById("title").value;
+              let amount = document.getElementById("amount").value;
 
-        let row = `
-        <tr>
-            <td>${title}</td>
-            <td>${amount}</td>
-        </tr>
-    `;
+              let row = `
+          <tr>
+              <td>${title}</td>
+              <td>${amount}</td>
+              <td>
+                  <button onclick="this.parentElement.parentElement.remove()">
+                      Delete
+                  </button>
+              </td>
+          </tr>
+      `;
+          `;
 
-        document.getElementById("expenseList").innerHTML += row;
-      }
+              document.getElementById("expenseList").innerHTML += row;
+            }
     </script>
   </body>
 </html>
